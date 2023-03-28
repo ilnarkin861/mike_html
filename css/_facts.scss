@@ -1,0 +1,110 @@
+#facts{
+	padding-top: 78px;
+	padding-bottom: 32px;
+
+	.items{
+		width: 100%;
+		max-width: 1070px;
+		margin: auto;
+		position: relative;
+
+		.column{
+			.item{
+				width: 150px;
+				margin: 0 auto 70px;
+				font-family: $secondary_font;
+	
+				.rhomb{
+					width: 130px;
+					height: 130px;
+					margin: auto;
+					position: relative;
+	
+					&::before,
+					&::after{
+						content: "";
+						width: 92px;
+						height: 92px;
+						position: absolute;
+					}
+	
+					&::before{
+						background-color: $color_white;
+						border: 1px solid $default_border_color;
+						top: 50%;
+						left: 50%;
+						z-index: 2;
+						@include prefixed(transform, translate(-50%, -50%) rotate(45deg));
+						@include prefixed(transition, all ease-in-out $transition_duration);
+					}
+	
+					&::after{
+						background-color: #f6f6f6;
+						left: 50%;
+						bottom: 9px;
+						@include prefixed(transform, translateX(-50%) rotate(45deg));
+					}
+	
+					.data{
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						z-index: 3;
+						@include prefixed(transform, translate(-50%, -50%));
+						@include prefixed(transition, color ease-in-out $transition_duration);
+	
+						.icon{
+							margin-bottom: 10px;
+							font-size: $fact_icon_font_size;
+						}
+	
+						.number{
+							font-size: $fact_number_font_size;
+						}
+					}
+				}
+	
+				.title{
+					margin-top: 30px;
+					font-size: $fact_title_font_size;
+					text-transform: uppercase;
+					@include prefixed(transition, color ease-in-out $transition_duration);
+				}
+
+				&:hover{
+					.rhomb{
+						&::before{
+							background-color: $main_color;
+							border: 1px solid $main_color;
+						}
+
+						.data{
+							color: $color_white;
+						}
+					}
+
+					.title{
+						color: $main_color;
+					}
+				}
+			}
+		}
+
+		@media (min-width: 992px){
+			&::before{
+				content: "";
+				width: 856px;
+				height: 1px;
+				background-color: $color_grey;
+				position: absolute;
+				top: 65px;
+				left: 50%;
+				@include prefixed(transform, translateX(-50%));
+			}
+
+			.column{
+				max-width: 20%;
+			}		
+		}
+	}
+}

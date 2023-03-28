@@ -1,0 +1,138 @@
+#contacts{
+	padding-top: 90px;
+	padding-bottom: 110px;
+
+	.section-heading{
+		.title{
+			span{
+				text-transform: none;
+			}
+		}
+	}
+
+	.contact-form{
+		width: 100%;
+		max-width: 870px;
+		margin: 70px auto 0;
+
+		.title{
+			padding-bottom: 17px;
+			font-size: $contact_form_title_font_size;
+			font-weight: 700;
+			position: relative;
+
+			&::after{
+				content: "";
+				width: 40px;
+				height: 1px;
+				background-color: #bbbbbb;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				@include prefixed(transform, translateX(-50%));
+			}
+		}
+
+		form{
+			width: 100%;
+			margin-top: 24px;
+			padding-left: 12px;
+			
+			input,
+			textarea{
+				display: block;
+				color: $main_color;
+				border: 0;
+				border-bottom: 1px solid $default_border_color;
+				@include prefixed(transition, all ease-in-out $transition_duration);
+
+				&:focus{
+					border-bottom: 1px solid $main_color;
+				}
+
+				&::-webkit-input-placeholder{
+					color: $contact_form_placeholder_color;
+					font-family: $secondary_font;
+					font-size: $contact_form_placeholder_font_size;
+					text-transform: uppercase;
+				}
+	
+				&::-moz-placeholder{
+					color: $contact_form_placeholder_color;
+					font-family: $secondary_font;
+					font-size: $contact_form_placeholder_font_size;
+					text-transform: uppercase;
+				}
+	
+				&:-moz-placeholder{
+					color: $contact_form_placeholder_color;
+					font-family: $secondary_font;
+					font-size: $contact_form_placeholder_font_size;
+					text-transform: uppercase;
+				}
+	
+				&:-ms-input-placeholder{
+					color: $contact_form_placeholder_color;
+					font-family: $secondary_font;
+					font-size: $contact_form_placeholder_font_size;
+					text-transform: uppercase;
+				}
+	
+				&::placeholder{
+					color: $contact_form_placeholder_color;
+					font-family: $secondary_font;
+					font-size: $contact_form_placeholder_font_size;
+					text-transform: uppercase;
+				}
+			}
+
+			input{
+				width: 100%;
+				margin-top: 30px;
+				padding-left: 10px;
+				padding-bottom: 12px;
+
+				@media (min-width: 992px){
+					max-width: 270px;                    
+				}
+			}
+
+			textarea{
+				width: 100%;
+				margin-top: 50px;
+				padding-bottom: 52px;
+				resize: none;
+			}
+
+			button{
+				display: block;
+				width: 100%;
+				height: 50px;
+				margin-top: 42px;
+				border: 1px solid $default_border_color;
+				font-family: $secondary_font;
+				font-size: $contact_form_button_font_size;
+				text-transform: uppercase;
+				@include prefixed(transition, all ease-in-out $transition_duration);
+
+				&:hover{
+					color: $color_white;
+					background-color: $color_black;
+					border: 1px solid $color_black;
+				}
+			}
+		}
+	}
+
+	.map{
+		width: 100%;
+		max-width: 1110px;
+		margin: 94px auto 0;
+
+		img{
+			width: 100%;
+			height: 100;
+			object-fit: cover;
+		}
+	}
+}

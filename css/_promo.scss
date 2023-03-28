@@ -1,0 +1,130 @@
+#promo{
+	padding-bottom: 102px;
+	
+	.banner{
+		width: 100%;
+		min-height: 390px;
+		margin-bottom: 20px;
+		color: $color_white;
+		background-image: url("../img/promo.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+		overflow: hidden;
+		position: relative;
+
+		&::before,
+		&::after{
+			content: "";
+			width: 50%;
+			height: 20px;
+			background-color: $color_white;
+			position: absolute;
+			bottom: 0;
+		}
+
+		&::before{
+			left: 0;
+			@include prefixed(transform-origin, bottom right);
+			@include prefixed(transform, skewX(56deg));
+		}
+
+		&::after{
+			right: 0;
+			@include prefixed(transform-origin, bottom left);
+			@include prefixed(transform, skewX(-56deg));
+		}
+
+		.title{
+			display: inline-block;
+			width: 100%;
+			max-width: 700px;
+			margin-top: 92px;
+			font-size: $promo_title_font_size;
+			font-weight: 700;
+
+			*{
+				line-height: 1.1;
+				letter-spacing: -3px;
+			}
+		}
+
+		.slogan{
+			margin-top: 32px;
+			font-size: $promo_slogan_font_size;
+			font-weight: 600;
+
+			*{
+				letter-spacing: -1px;
+			}
+		}
+
+		@media (max-width: 768px){
+			.title{
+				font-size: calc($promo_title_font_size / 1.5);
+			}
+			
+			.slogan{
+				font-size: calc($promo_slogan_font_size / 1.5);
+			}
+		}
+	}
+
+	.buttons{
+		font-family: $secondary_font;
+
+		ul{
+			font-size: 0;
+
+			li{
+				display: inline-block;
+				margin: 20px 15px 0 15px;
+				font-size: $default_font_size;
+
+				a{
+					display: inline-block;
+					width: 170px;
+					height: 50px;
+					position: relative;
+
+					span{
+						width: 100%;
+						display: block;
+						position: absolute;
+						top: 50%;
+						@include prefixed(transform, translateY(-50%));
+						@include prefixed(transition, all ease-in-out $transition_duration);
+					}
+				}
+
+				&:first-child{
+
+					a{
+						color: $color_black;
+						border: 1px solid $default_border_color;
+
+						&:hover{
+							color: $color_white;
+							background-color: $main_color;
+							border: 1px solid $main_color;
+						}
+					}
+				}
+
+				&:last-child{
+					a{
+						color: $color_white;
+						background-color: $main_color;
+						border: 1px solid $main_color;
+
+						&:hover{
+							color: $color_black;
+							background: none;
+							border: 1px solid $default_border_color;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,97 @@
+#navigation{
+	width: 100%;
+	min-height: 65px;
+	color: $color_white;
+	background-color: $main_color;
+	overflow: hidden;
+
+	.logo{
+		min-width: 100px;
+		height: 65px;
+		padding-top: 20px;
+		font-size: $logo_font_size;
+		font-weight: 800;
+		position: relative;
+
+		&::before{
+			content: "";
+			width: 10000px;
+			height: 100%;
+			background-color: #004b91;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		a{
+			display: inline-block;
+			position: relative;
+
+			&::after{
+				content: "";
+				width: 0;
+				height: 0;
+				border-top: 4px solid transparent;
+				border-right: 5px solid $color_white;
+				border-bottom: 6px solid transparent;
+				position: absolute;
+				top: 8px;
+				right: -6px;
+			}
+
+			&:hover{
+				color: $color_white;
+			}
+		}
+	}
+
+	.menu{
+		padding-top: 26px;
+		
+		ul{
+			font-size: 0;
+
+			li{
+				display: inline-block;
+				height: 100%;
+				margin-left: 20px;
+				padding-bottom: 26px;
+				font-size: $default_font_size;
+				font-weight: 600;
+				text-transform: uppercase;
+				position: relative;
+
+				&.active{
+					&::after{
+						content: "";
+						width: calc(100% + 14px);
+						height: 3px;
+						background-color: $color_white;
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						@include prefixed(transform, translateX(-50%));
+					}
+				}
+
+				a{
+					@include prefixed(transition, all ease-in-out $transition_duration);
+
+					&:hover{
+						color: $color_grey;
+					}
+				}
+			}
+		}
+	}
+
+	.mobile-menu-button{
+		width: 40px;
+		height: 34px;
+		margin-top: 20px;
+		margin-right: 10px;
+		background-image: url("../img/menu.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}

@@ -1,0 +1,147 @@
+#team{
+	padding-top: 72px;
+	padding-bottom: 40px;
+
+	.members{
+		margin-top: 54px;
+
+		.member{
+			max-width: 270px;
+			min-height: 334px;
+			margin: 0 auto 70px;
+			position: relative;
+
+			&:hover{
+				.overlay{
+					opacity: 1;
+				}
+			}
+
+			.avatar{
+				width: 100%;
+				height: 270px;
+				margin: auto;
+				overflow: hidden;
+				
+				img{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					margin: auto;
+					border: 4px solid $member_avatar_bg_color;
+				}
+			}
+
+			.name{
+				padding-top: 28px;
+				padding-bottom: 20px;
+				border: 1px solid $default_border_color;
+				font-size: $member_name_font_size;
+				font-weight: 600;
+				text-transform: uppercase;
+			}		
+			
+			.overlay{
+				width: 100%;
+				height: 100%;
+				color: $color_white;
+				background-color: $main_color;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				@include prefixed(transition, all ease-in-out $transition_duration);
+
+				.overlay-member-name,
+				.career{
+					text-transform: uppercase;
+				}
+
+				.overlay-member-name{
+					padding-top: 48px;
+					padding-bottom: 0;					
+					font-size: $member_overlay_name_font_size;
+					font-weight: 600;
+				}
+
+				.career{
+					padding-bottom: 25px;
+					font-family: $secondary_font;
+					line-height: 2;
+					letter-spacing: -1px;
+					position: relative;
+
+					&::after{
+						content: "";
+						width: 30px;
+						height: 1px;
+						background-color: $color_white;
+						position: absolute;
+						left: 50%;
+						bottom: 0;
+						@include prefixed(transform, translateX(-50%));
+					}
+				}
+
+				.text{
+					width: 90%;
+					margin: 28px auto 0;
+					font-weight: 300;
+
+					*{
+						line-height: 1.4;
+					}
+				}
+
+				.social-links{
+					margin-top: 48px;
+
+					ul{
+						font-size: 0;
+
+						li{
+							display: inline-block;
+							
+							a{
+								display: inline-block;
+								width: 40px;
+								height: 40px;
+								color: $color_white;
+								font-size: $member_social_links_font_size;
+								position: relative;
+								@include prefixed(transition, all ease-in-out $transition_duration);
+
+								&:hover{
+									color: $main_color;
+
+									&::before{
+										background-color: $color_white;
+									}
+								}
+
+								&::before{
+									content: "";
+									width: 28px;
+									height: 28px;
+									border: 2px solid $color_white;
+									position: absolute;
+									top: 50%;
+									left: 50%;
+									@include prefixed(transform, translate(-50%, -50%) rotate(45deg));
+									@include prefixed(transition, all ease-in-out $transition_duration);
+								}
+
+								span{
+									position: absolute;
+									top: 50%;
+									left: 50%;
+									@include prefixed(transform, translate(-50%, -50%));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

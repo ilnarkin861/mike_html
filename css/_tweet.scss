@@ -1,0 +1,94 @@
+#tweet{
+	width: 100%;
+	min-height: 600px;
+	padding-top: 108px;
+	color: $color_white;
+	background-image: url("../img/tweet.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+
+	.icon{
+		width: 93px;
+		height: 93px;
+		margin: auto;
+		position: relative;
+
+		&::before,
+		span{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+
+		&::before{
+			content: "";
+			width: 66px;
+			height: 66px;
+			border: 2px solid $color_white;
+			@include prefixed(transform, translate(-50%, -50%) rotate(45deg));
+		}
+
+		span{
+			font-size: $tweet_icon_font_size;
+			@include prefixed(transform, translate(-50%, -50%));
+		}
+	}
+
+	.title,
+	.button{
+		font-family: $secondary_font;
+	}
+
+	.title{
+		margin-top: 28px;
+		padding-bottom: 27px;
+		font-size: $tweet_title_font_size;
+		position: relative;
+
+		&::after{
+			content: "";
+			width: 40px;
+			height: 1px;
+			background-color: #bbbbbb;
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			@include prefixed(transform, translateX(-50%));
+		}
+	}
+
+	.text{
+		width: 100%;
+		max-width: 830px;
+		margin: 46px auto 0;
+		font-size: $tweet_text_font_size;
+		font-weight: 300;
+
+		*{
+			line-height: 1.5;
+		}
+
+		.link{
+			color: $main_color;
+		}
+	}
+
+	.button{
+		margin-top: 78px;
+		padding-bottom: 80px;
+
+		a{
+			display: inline-block;
+			padding: 15px 38px 15px;
+			border: 1px solid $tweet_button_border_color;
+			@include prefixed(transition, all ease-in-out $transition_duration);
+
+			&:hover{
+				color: $color_black;
+				background-color: $color_white;
+				border: 1px solid $color_white;
+			}
+		}
+	}
+}

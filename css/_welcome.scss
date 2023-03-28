@@ -1,0 +1,245 @@
+#welcome{
+	padding-top: 86px;
+	padding-bottom: 40px;
+
+	.section-heading{
+		font-family: $secondary_font;
+		text-transform: uppercase;
+		text-align: center;
+	
+		.title{
+			color: $main_color;
+			font-size: $section_title_font_size;
+	
+			*{
+				letter-spacing: -2px;
+			}
+		}
+	
+		.subtitle{
+			@media (min-width: 768px){
+				
+				&::before{
+					left: -40px;
+				}
+	
+				&::after{
+					right: -40px;
+				}
+			}
+		}
+	}
+
+	.content{
+		margin-top: 94px;
+
+		.column{
+			width: 100%;
+			max-width: 350px;
+
+			.rhomb{
+				width: 280px;
+				height: 280px;
+				margin: -29px auto 0;
+				position: relative;
+
+				&::before,
+				&::after{
+					content: "";
+					position: absolute;
+				}
+				
+				&::before{
+					width: 198px;
+					height: 198px;
+					background-color: $main_color;
+					top: 50%;
+					left: 50%;
+					z-index: 3;
+					@include prefixed(transform, translate(-50%, -50%) rotate(45deg));
+				}
+
+				&::after{
+					width: 205px;
+					height: 205px;
+					background: #e5e5e5;
+					left: 50%;
+					bottom: 32px;
+					@include prefixed(transform, translateX(-50%) rotate(45deg));
+				}
+
+				.icon{
+					width: 148px;
+					height: 107px;
+					background-image: url("../img/welcome_icon.svg");
+					background-repeat: no-repeat;
+					background-size: contain;
+					position: absolute;
+					top: 89px;
+					left: 67px;
+					z-index: 4;
+
+					span{
+						display: inline-block;
+						color: $color_white;
+						font-size: $welcome_name_font_size;
+						font-weight: 800;
+						position: absolute;
+						top: 43px;
+						left: 41px;
+
+						&::after{
+							content: "";
+							width: 0;
+							height: 0;
+							border-top: 5px solid transparent;
+							border-right: 5px solid #e1ecf7;
+							border-bottom: 4px solid transparent;
+							position: absolute;
+							top: 6px;
+							right: -8px;
+						}
+					}
+				}
+			}
+			
+			&.item-column{
+				max-width: 410px;
+
+				.item{
+					margin-bottom: 44px;
+					padding-bottom: 25px;
+					position: relative;
+
+					&.left,
+					&.right{
+						&:nth-child(1){
+							&::after{
+								content: "";
+								width: 50px;
+								height: 1px;
+								background-color: #cccccc;
+								position: absolute;
+								bottom: 0;
+							} 
+						}
+					}
+
+					&.left{
+						&:nth-child(1){
+							&::after{
+								right: 10px;
+							} 
+						}
+					}
+
+					&.right{
+						&:nth-child(1){
+							&::after{
+								left: 10px;
+							} 
+						}
+					}
+
+					&.left{
+						.info{
+							margin-right: 21px;
+						}
+					}
+
+					&.right{
+						.info{
+							margin-left: 21px;
+						}
+					}
+
+					.icon{
+						width: 70px;
+						height: 70px;
+						position: relative;
+	
+						&::before,
+						&::after{
+							content: "";
+							width: 50px;
+							height: 50px;
+							position: absolute;
+						}
+	
+						&::before{
+							background-color: $color_white;
+							border: 1px solid $default_border_color;
+							top: 50%;
+							left: 50%;
+							z-index: 3;
+							@include prefixed(transform, translate(-50%, -50%) rotate(45deg));
+						}
+	
+						&::after{
+							background: $color_grey;
+							left: 50%;
+							bottom: 4px;
+							@include prefixed(transform, translateX(-50%) rotate(45deg));
+						}
+		
+						span{
+							font-size: $welcome_icon_font_size;
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							z-index: 4;
+							@include prefixed(transform, translate(-50%, -50%));
+						}
+					}
+
+					.info{
+						.title{
+							font-size: $welcome_item_title_font_size;
+							font-weight: 600;
+						}
+		
+						.description{        
+							display: inline-block;
+							width: 100%;
+							max-width: 290px;                
+							margin-top: 17px;
+							font-size: $welcome_item_description_font_size;
+							font-weight: 300;
+		
+							*{
+								line-height: 1.52;
+							}
+						}
+					}
+				}
+			}
+
+			@media (max-width: 1199px){
+				max-width: 350px!important;
+				margin: auto;
+
+				.rhomb{
+					margin-bottom: 70px;
+				}
+
+				&.item-column{
+					.item{
+						&::after{
+							left: 50%!important;
+							@include prefixed(transform, translateX(-50%));
+						}
+
+						.icon{
+							margin: 0 auto 30px;
+						}
+
+						.info{
+							margin-left: 0!important;
+							margin-right: 0!important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

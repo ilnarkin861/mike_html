@@ -1,0 +1,49 @@
+#mobile-menu{
+	width: 350px;
+	height: 100%;
+	padding: 40px;
+	background: $color_white;
+	border-left: 3px solid $main_color;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	right: -100%;
+	z-index: 1000;
+	@include prefixed(transition, all ease-in-out $transition_duration);
+
+	&.visible{
+		right: 0;
+	}
+
+	.button button{
+		width: 30px;
+		height: 30px;
+		background-image: url("../img/close.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	.menu{
+		margin-top: 100px;
+		margin-left: 60px;
+
+		ul li{
+			margin-bottom: 20px;
+			font-size: $mobile_menu_font_size;
+
+			a{
+				color: $color_black;
+				@include prefixed(transition, all ease-in-out $transition_duration);
+
+				&:hover,
+				&.active{
+					color: $main_color;
+				}
+			}
+		}
+	}
+	
+	@media (max-width: 576px){
+		width: 250px;
+	}
+}
